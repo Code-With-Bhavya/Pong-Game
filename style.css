@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins' , sans-serif;
+}
+.pselect{
+    display: none;
+}
+.diffselect{
+    display: none;
+}
+.start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startgame{
+    font-size: 40px;
+    margin: 10px;
+    background-color: black;
+    color: yellow;
+    box-shadow: 0px 0px 10px 3px red;
+    cursor: pointer;
+}
+#headtext{
+    text-align: center;
+    font-weight: 900px;
+    text-shadow: 0px 0px 2px red;
+    font-size: 45px;
+}
+#gamecontainer{
+    text-align: center;
+}
+#gamearea{
+    border: 3px solid;
+}
+#scoretext{
+    font-size: 80px;
+}
+#resetbutton{
+    font-size: 20px;
+    width: 90px;
+    height: 40px;
+    border: 3px solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+    #gamearea{
+        height: 50vh;
+        width: 70vw;
+    }
+    /* Yahan par aapke CSS rules honge jo 600 pixels ya usse chhote screen sizes ke liye apply honge */
+  }
+  
