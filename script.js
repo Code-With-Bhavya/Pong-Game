@@ -1,4 +1,7 @@
+
 let result = false;
+let levelpaddle = "easy";
+let randomNumber = 40;
 function gameStart() {
     
     const gamearea = document.querySelector("#gamearea");
@@ -17,7 +20,7 @@ function gameStart() {
     const paddlespeed = 50;
     let automaticpaddlespeed = 0
     let intervalid;
-    let ballspeed = 5;
+    let ballspeed = 6;
     let ballx = gamewidth / 2;
     let bally = gameheight / 2;
     let ballxdirection = 0;
@@ -73,7 +76,7 @@ function gameStart() {
         ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
     };
     function createball() {
-        ballspeed = 4;
+        ballspeed = 6;
         if (Math.round(Math.random()) == 1) {
             ballxdirection = 1;
         }
@@ -91,6 +94,7 @@ function gameStart() {
         drawball(ballx, bally);
     };
     function moveball() {
+        movepaddle();
         ballx += ballspeed * ballxdirection;
         bally += ballspeed * ballydirection;
     };
@@ -126,14 +130,14 @@ function gameStart() {
             if (bally > paddle1.y && bally < paddle1.y + paddle1.height) {
                 ballx = paddle1.x + paddle1.width + ballradius;//if ball stucks
                 ballxdirection *= -1;
-                ballspeed += 1;
+                ballspeed += 0.4;
             }
         }
         if (ballx >= (paddle2.x - ballradius)) {
             if (bally > paddle2.y && bally < paddle2.y + paddle2.height) {
                 ballx = paddle2.x - ballradius;//if ball stucks
                 ballxdirection *= -1;
-                ballspeed += 1;
+                ballspeed += 0.4;
             }
         }
     };
@@ -175,18 +179,79 @@ function gameStart() {
     };
     function updatescore() {
         scoretext.textContent = `${player1score} : ${player2score}`;
+        if (player1score == winnerscore){
+            alert("Player 1 is Winner");
+            window.location.reload();
+        }
+        if (player2score == winnerscore){
+            alert("Player 2 is Winner");
+            window.location.reload();
+        }
     };
     function resetgame() {
         window.location.reload();
     };
     function movepaddle() {
-        if (!result) { // Only move paddle automatically if result is false (1 player mode)
-            if (paddle1.y <= 0) { // Check if paddle1 is at the top edge
-                automaticpaddlespeed = autopaddspeed; // Set the speed for moving down
-            } else if (paddle1.y >= gameheight - paddle1.height) { // Check if paddle1 is at the bottom edge
-                automaticpaddlespeed = -autopaddspeed; // Set the speed for moving up
-            }
-            paddle1.y += automaticpaddlespeed; // Update paddle1 position based on automaticpaddlespeed
+        // if (!result) { // Only move paddle automatically if result is false (1 player mode)
+        //     if (paddle1.y <= 0) { // Check if paddle1 is at the top edge
+        //         automaticpaddlespeed = autopaddspeed; // Set the speed for moving down
+        //     } else if (paddle1.y >= gameheight - paddle1.height) { // Check if paddle1 is at the bottom edge
+        //         automaticpaddlespeed = -autopaddspeed; // Set the speed for moving up
+        //     }
+        //     paddle1.y += automaticpaddlespeed; // Update paddle1 position based on automaticpaddlespeed
+        // }
+        
+        
+        if(!result){
+           
+            if(levelpaddle == 'easy'){
+                if (Math.abs(ballx - gamewidth / 2) <= ballspeed ){
+                    randomNumber = Math.floor(Math.random() * 100) + 1;
+                    console.log(randomNumber);
+                };
+                if(ballx < gamewidth/2){
+                
+                    if(randomNumber>15){
+                        paddle1.y = bally - (paddle1.height/2);
+                    }
+                    else{
+                        paddle1.y = bally - 200;
+                    };
+                };
+            };   
+            if(levelpaddle == 'medium'){
+                if (Math.abs(ballx - gamewidth / 2) <= ballspeed ){
+                    randomNumber = Math.floor(Math.random() * 100) + 1;
+                    console.log(randomNumber);
+                };
+                if (randomNumber>10){
+                    if(ballx < gamewidth/2){
+                    paddle1.y = bally - (paddle1.height/2);
+                    };
+                }
+                else{
+                    if(ballx < gamewidth/2){
+                        paddle1.y = bally - 100;
+                    };
+                };
+            };   
+            if(levelpaddle == 'hard'){
+                if (Math.abs(ballx - gamewidth / 2) <= ballspeed){
+                    randomNumber = Math.floor(Math.random() * 100) + 1;
+                    console.log(randomNumber);
+                };
+                if (randomNumber>5){
+                    if(ballx < gamewidth/2){
+                    paddle1.y = bally - (paddle1.height/2);
+                    };
+                }
+                else{
+                    if(ballx < gamewidth/2){
+                        paddle1.y = bally - 110;
+                    };
+                };
+            };   
+           
         }
     }
     
