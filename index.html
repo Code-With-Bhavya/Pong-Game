@@ -9,12 +9,12 @@
 <body>
     <div id="headtext">Pong Game</div>
     <div class="start">
-        <button class="startgame" onclick="this.style.display = 'none';document.getElementById('playerselect').style.display = 'flex';document.getElementById('playerxselect').style.display = 'flex';";">START</button>
+        <button class="startgame" onclick="this.style.display = 'none';document.getElementById('playerselect').style.display = 'flex';document.getElementById('playerxselect').style.display = 'flex';winnerscore = prompt('Enter Winner Score : ')">START</button>
         <button class="startgame pselect"id="playerselect" onclick="this.style.display = 'none';document.getElementById('playerxselect').style.display = 'none';document.getElementById('level1').style.display = 'flex';document.getElementById('level2').style.display = 'flex';document.getElementById('level3').style.display = 'flex';">1 Player</button>
-        <button class="startgame pselect" id="playerxselect"onclick = "gameStart() ;this.style.display = 'none';document.getElementById('playerselect').style.display = 'none';result = true;">2 Player</button>
-        <button id="level1" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level2').style.display = 'none';document.getElementById('level3').style.display = 'none';result = false;autopaddspeed = 14;">Easy</button>
-        <button id="level2" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level3').style.display = 'none';document.getElementById('level1').style.display = 'none';result = false;autopaddspeed = 24;">Medium</button>
-        <button id="level3" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level1').style.display = 'none';document.getElementById('level2').style.display = 'none';result = false;autopaddspeed = 40;">Hard</button>
+        <button class="startgame pselect" id="playerxselect"onclick = "gameStart() ;this.style.display = 'none';document.getElementById('resetbutton').style.display = 'flex';document.getElementById('playerselect').style.display = 'none';result = true;">2 Player</button>
+        <button id="level1" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level2').style.display = 'none';document.getElementById('level3').style.display = 'none';result = false;levelpaddle = 'easy';">Easy</button>
+        <button id="level2" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level3').style.display = 'none';document.getElementById('level1').style.display = 'none';result = false;levelpaddle = 'medium';">Medium</button>
+        <button id="level3" class="startgame diffselect" onclick="gameStart(); this.style.display = 'none';document.getElementById('level1').style.display = 'none';document.getElementById('level2').style.display = 'none';result = false;levelpaddle = 'hard';">Hard</button>
     </div>
     <div id="gamecontainer">
         <canvas id="gamearea" width="900px" height="450px"></canvas>
