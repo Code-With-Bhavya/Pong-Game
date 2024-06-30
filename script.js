@@ -7,7 +7,7 @@ function gameStart() {
     const downbutton = document.querySelector("#downbutton");
     const upbuttonleft = document.querySelector("#upbuttonleft");
     const downbuttonleft = document.querySelector("#downbuttonleft");
-    
+    const bouncesound = document.getElementById('bouncesound');
     const gamearea = document.querySelector("#gamearea");
     const ctx = gamearea.getContext("2d");
     const scoretext = document.querySelector("#scoretext");
@@ -139,6 +139,7 @@ function gameStart() {
         if (ballx <= (paddle1.x + paddle1.width + ballradius)) {
             if (bally > paddle1.y && bally < paddle1.y + paddle1.height) {
                 ballx = paddle1.x + paddle1.width + ballradius;//if ball stucks
+                bouncesound.play();
                 ballxdirection *= -1;
                 ballspeed += 0.4;
             }
@@ -146,6 +147,7 @@ function gameStart() {
         if (ballx >= (paddle2.x - ballradius)) {
             if (bally > paddle2.y && bally < paddle2.y + paddle2.height) {
                 ballx = paddle2.x - ballradius;//if ball stucks
+                bouncesound.play();
                 ballxdirection *= -1;
                 ballspeed += 0.4;
             }
@@ -209,7 +211,6 @@ function gameStart() {
             if(levelpaddle == 'easy'){
                 if (Math.abs(ballx - gamewidth / 2) <= ballspeed ){
                     randomNumber = Math.floor(Math.random() * 100) + 1;
-                    console.log(randomNumber);
                 };
                 if(ballx < gamewidth/2){
                 
@@ -224,7 +225,6 @@ function gameStart() {
             if(levelpaddle == 'medium'){
                 if (Math.abs(ballx - gamewidth / 2) <= ballspeed ){
                     randomNumber = Math.floor(Math.random() * 100) + 1;
-                    console.log(randomNumber);
                 };
                 if (randomNumber>10){
                     if(ballx < gamewidth/2){
@@ -240,7 +240,6 @@ function gameStart() {
             if(levelpaddle == 'hard'){
                 if (Math.abs(ballx - gamewidth / 2) <= ballspeed){
                     randomNumber = Math.floor(Math.random() * 100) + 1;
-                    console.log(randomNumber);
                 };
                 if (randomNumber>5){
                     if(ballx < gamewidth/2){
