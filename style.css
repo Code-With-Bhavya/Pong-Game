@@ -117,34 +117,47 @@
 }
 
 #resetbutton {
+    text-align: center;
+    position: relative;
     font-size: 20px;
-    width: 90px;
+    width: 70px;
     height: 40px;
     border: 3px solid;
     border-radius: 15px;
     cursor: pointer;
     display: none;
+    left: 48%;
 }
 
 /* Button for Controlling movement of paddle2
  */
 @media screen and (max-width: 600px) {
     #gamearea {
-        height: 35vh;
-        width: 80vw;
+        height: 25vh;
+        width: 96vw;
     }
     #upbutton , #downbutton{
-        margin-top: 400px;
-        right: 20px;
+        margin-top: 300px;
+        right: -10px;
         width: 99px;
        
     }
     #upbuttonleft , #downbuttonleft{
-        margin-top: 400px;
+        margin-top: 300px;
         left: -5px;
         width: 99px;
        
     }
-
+    #resetbutton{
+        bottom: -200px;
+        left: 38%;
+    }
+    
+    .startgame{
+        font-size: 30px;
+    }
+    .pselect{
+        font-size: 30px;
+        }
     /* Yahan par aapke CSS rules honge jo 600 pixels ya usse chhote screen sizes ke liye apply honge */
 };
