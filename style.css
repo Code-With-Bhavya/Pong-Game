@@ -1,19 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-    font-family: 'Poppins' , sans-serif;
+
+* {
+    font-family: 'Poppins', sans-serif;
 }
-.pselect{
+.slider{
+    position: absolute;
+    height: 100%;
+    right: 10px;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+}
+#upbutton{
+    right: 80px;
+    top: 0px;
+    width: 100px;
+    position: absolute;
+    height: 50px;
+    font-size: 30px;
+    background-color: red;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+
+}
+#downbutton{
+    position: absolute;
+    right: 80px;
+    top: 80px;
+    font-size: 30px;
+    background-color: red;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.sliderleft{
+    position: absolute;
+    height: 100%;
+    left: 10px;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+}
+#upbuttonleft{
+    left: 80px;
+    top: 0px;
+    width: 100px;
+    position: absolute;
+    height: 50px;
+    font-size: 30px;
+    background-color: red;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+
+}
+#downbuttonleft{
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    font-size: 30px;
+    background-color: red;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.pselect {
     display: none;
 }
-.diffselect{
+
+.diffselect {
     display: none;
 }
-.start{
+
+.start {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.startgame{
+
+.startgame {
     font-size: 40px;
     margin: 10px;
     background-color: black;
@@ -21,22 +95,28 @@
     box-shadow: 0px 0px 10px 3px red;
     cursor: pointer;
 }
-#headtext{
+
+#headtext {
     text-align: center;
     font-weight: 900px;
     text-shadow: 0px 0px 2px red;
     font-size: 45px;
 }
-#gamecontainer{
+
+#gamecontainer {
+    position: relative;
     text-align: center;
 }
-#gamearea{
+
+#gamearea {
     border: 3px solid;
 }
-#scoretext{
+
+#scoretext {
     font-size: 80px;
 }
-#resetbutton{
+
+#resetbutton {
     font-size: 20px;
     width: 90px;
     height: 40px;
@@ -45,11 +125,26 @@
     cursor: pointer;
     display: none;
 }
+
+/* Button for Controlling movement of paddle2
+ */
 @media screen and (max-width: 600px) {
-    #gamearea{
-        height: 50vh;
-        width: 70vw;
+    #gamearea {
+        height: 35vh;
+        width: 80vw;
     }
+    #upbutton , #downbutton{
+        margin-top: 400px;
+        right: 20px;
+        width: 99px;
+       
+    }
+    #upbuttonleft , #downbuttonleft{
+        margin-top: 400px;
+        left: -5px;
+        width: 99px;
+       
+    }
+
     /* Yahan par aapke CSS rules honge jo 600 pixels ya usse chhote screen sizes ke liye apply honge */
-  }
-  
+};
