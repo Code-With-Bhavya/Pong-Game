@@ -1,8 +1,12 @@
-
 let result = false;
 let levelpaddle = "easy";
 let randomNumber = 40;
+
 function gameStart() {
+    const upbutton = document.querySelector("#upbutton");
+    const downbutton = document.querySelector("#downbutton");
+    const upbuttonleft = document.querySelector("#upbuttonleft");
+    const downbuttonleft = document.querySelector("#downbuttonleft");
     
     const gamearea = document.querySelector("#gamearea");
     const ctx = gamearea.getContext("2d");
@@ -17,7 +21,7 @@ function gameStart() {
     const ballcolor = "yellow";
     const ballbordercolor = "black";
     const ballradius = 12.5;
-    const paddlespeed = 50;
+    const paddlespeed =50;
     let automaticpaddlespeed = 0
     let intervalid;
     let ballspeed = 6;
@@ -41,8 +45,13 @@ function gameStart() {
         y: gameheight - 100
 
     }
+   
     window.addEventListener("keydown", changedirection);
     resetbutton.addEventListener("click", resetgame);
+    upbutton.addEventListener("click" , moveup);
+    downbutton.addEventListener("click" , movedown);
+    upbuttonleft.addEventListener("click" , moveupleft);
+    downbuttonleft.addEventListener("click" , movedownleft);
     gamestart();
     function gamestart() {
         createball();
@@ -64,6 +73,7 @@ function gameStart() {
         ctx.fillStyle = boardbackground;
         ctx.fillRect(0, 0, gamewidth, gameheight)
     };
+    
     function drawpaddles() {
         ctx.strokeStyle = paddleborder;
         //paddle1 draw:
@@ -192,14 +202,6 @@ function gameStart() {
         window.location.reload();
     };
     function movepaddle() {
-        // if (!result) { // Only move paddle automatically if result is false (1 player mode)
-        //     if (paddle1.y <= 0) { // Check if paddle1 is at the top edge
-        //         automaticpaddlespeed = autopaddspeed; // Set the speed for moving down
-        //     } else if (paddle1.y >= gameheight - paddle1.height) { // Check if paddle1 is at the bottom edge
-        //         automaticpaddlespeed = -autopaddspeed; // Set the speed for moving up
-        //     }
-        //     paddle1.y += automaticpaddlespeed; // Update paddle1 position based on automaticpaddlespeed
-        // }
         
         
         if(!result){
@@ -254,5 +256,29 @@ function gameStart() {
            
         }
     }
+    function moveup(){
+        if (paddle2.y > 0){
+            paddle2.y -= paddlespeed;
+        };
+    }
+    function movedown(){
+        if (paddle2.y < gameheight/2 + paddle2.height ){
+            paddle2.y += paddlespeed;
+        }
+    }
+    function moveupleft(){
+        if (result){
+            if (paddle1.y > 0){
+                paddle1.y -= paddlespeed;
+            };
+        };   
+    };
+    function movedownleft(){
+        if (result){
+            if (paddle1.y < gameheight/2 + paddle1.height ){
+                paddle1.y += paddlespeed;
+            };
+        };
+    };
     
 };
