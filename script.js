@@ -24,7 +24,7 @@ function gameStart() {
     const paddlespeed =50;
     let automaticpaddlespeed = 0
     let intervalid;
-    let ballspeed = 6;
+    let ballspeed = 4;
     let ballx = gamewidth / 2;
     let bally = gameheight / 2;
     let ballxdirection = 0;
